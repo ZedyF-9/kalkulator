@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple calculator for the four basic arithmetic operations.">
+    <meta name="theme-color" content="#f3f0e7">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="splash-screen" id="splashScreen" aria-hidden="true">
+        <div class="splash-content">
+            <div class="splash-symbols">
+                <span>+</span><span>−</span><span>×</span><span>÷</span>
+            </div>
+            <p class="splash-title">Calculator</p>
+        </div>
+    </div>
+
+    <main class="page-shell">
+        <section class="calculator-panel" aria-labelledby="calculator-title">
+            <header class="panel-header">
+                <h2 id="calculator-title">Calculator</h2>
+            </header>
+
+            <div class="input-grid">
+                <div class="form-group">
+                    <label for="firstNumber"><span class="field-index" aria-hidden="true">A</span>First number</label>
+                    <input type="number" inputmode="decimal" step="any" id="firstNumber" placeholder="0" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="secondNumber"><span class="field-index" aria-hidden="true">B</span>Second number</label>
+                    <input type="number" inputmode="decimal" step="any" id="secondNumber" placeholder="0" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="operation-heading">
+                <span>Operations</span>
+                <span class="operation-hint">Select an operation to calculate</span>
+            </div>
+            <div class="operator-grid" role="group" aria-label="Choose a mathematical operation">
+                <button class="operator-button" type="button" aria-label="Add" onclick="calculate('+')">
+                    <span class="operator-symbol">+</span><span class="operator-name">Add</span>
+                </button>
+                <button class="operator-button" type="button" aria-label="Subtract" onclick="calculate('-')">
+                    <span class="operator-symbol">−</span><span class="operator-name">Subtract</span>
+                </button>
+                <button class="operator-button" type="button" aria-label="Multiply" onclick="calculate('*')">
+                    <span class="operator-symbol">×</span><span class="operator-name">Multiply</span>
+                </button>
+                <button class="operator-button" type="button" aria-label="Divide" onclick="calculate('/')">
+                    <span class="operator-symbol">÷</span><span class="operator-name">Divide</span>
+                </button>
+            </div>
+
+            <div class="panel-actions">
+                <p>You can use the result in your next calculation.</p>
+                <button class="btn-reset" type="button" onclick="resetCalculator()"><span aria-hidden="true">↺</span>Reset</button>
+            </div>
+
+            <section class="result-card" id="resultPanel" aria-label="Calculation result">
+                <div class="result-header">
+                    <span class="result-label">RESULT</span>
+                </div>
+                <p class="result-equation" id="resultExpression"></p>
+                <p class="result-value" id="resultValue" role="status" aria-live="polite" aria-atomic="true">—</p>
+            </section>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
